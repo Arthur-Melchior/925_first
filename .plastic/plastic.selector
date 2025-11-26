@@ -1,0 +1,4 @@
+repository "925_02_first/925_02_first@9071021332976@cloud"
+  path "/"
+    br "/main"
+    co "/main"

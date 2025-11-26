@@ -1,0 +1,31 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+MemoryCaptures/
+*.pidb
+*.user
+*.suo
+*.tmp
+*.userprefs
+*.csproj
+*.unityproj
+*.sln
+*.dcc
+*.apk
+*.aab
+
+# Visual Studio cache
+.vs/
+
+# Rider cache
+.idea/
+*.ride/
+
+# Unity cache
+*.unitypackage
+sysinfo.txt
