@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1794249100206381046}
   - component: {fileID: 998801912136914849}
   - component: {fileID: 7908237522778562240}
-  - component: {fileID: -5410549554803554116}
+  - component: {fileID: -312126763598017600}
   m_Layer: 0
   m_Name: TankFree_Wheel
   m_TagString: Untagged
@@ -114,14 +114,26 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -312126763598017600}
+        m_TargetAssemblyTypeName: WheelScript, Assembly-CSharp
+        m_MethodName: GoForward
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 18f282d2-cc5b-41e5-8cf4-c815525772c4
     m_ActionName: 'Tank/Move[/Keyboard/w,/Keyboard/s]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5410549554803554116}
-        m_TargetAssemblyTypeName: TankController, Assembly-CSharp
-        m_MethodName: TurnWheel
+      - m_Target: {fileID: -312126763598017600}
+        m_TargetAssemblyTypeName: WheelScript, Assembly-CSharp
+        m_MethodName: Turn
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -141,12 +153,16 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1331c820-f238-4aca-ae79-426b5dd659b8
     m_ActionName: 'Tank/TurnCannon[/Mouse/scroll/up,/Mouse/scroll/down]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 895c38fa-8fed-4b36-b223-d942e12dacd3
+    m_ActionName: 'Tank/Shoot[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Tank
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &-5410549554803554116
+--- !u!114 &-312126763598017600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,11 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4570532094632408461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fadd132bfaf5164c9f1f3740e26c932, type: 3}
+  m_Script: {fileID: 11500000, guid: 22363467a3508f64c8d6965abea81e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  turnSpeed: 10
-  turretSpeed: 10
-  cannonSpeed: 50
-  leftWheel: 0
+  isLefWheel: 0
