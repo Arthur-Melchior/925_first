@@ -98,9 +98,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "6af13424-e9fc-4e49-acb8-6e4fd756e1f7",
-                    "path": "<Gamepad>/leftStick/down",
+                    "name": "positive",
+                    "id": "e728535e-fa59-4cfe-aeed-e20beae7835e",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -109,9 +109,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "e728535e-fa59-4cfe-aeed-e20beae7835e",
-                    "path": "<Gamepad>/leftStick/up",
+                    "name": "negative",
+                    "id": "6af13424-e9fc-4e49-acb8-6e4fd756e1f7",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -164,9 +164,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
-                    "id": "b257b4cb-3c65-451c-8ad4-0f3883dc2158",
-                    "path": "<Gamepad>/leftStick/left",
+                    "name": "positive",
+                    "id": "d1b0732d-7a68-4ba4-8394-5731e7e803e9",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -175,9 +175,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "d1b0732d-7a68-4ba4-8394-5731e7e803e9",
-                    "path": "<Gamepad>/leftStick/right",
+                    "name": "negative",
+                    "id": "b257b4cb-3c65-451c-8ad4-0f3883dc2158",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

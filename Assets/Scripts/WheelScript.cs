@@ -5,7 +5,7 @@ public class WheelScript : MonoBehaviour
 {
     private float _turnDirection;
     private float _thrustDirection;
-    [SerializeField] private float wheelRotation = 300;
+    [SerializeField] private float wheelRotationSpeed = 300;
     [SerializeField] private bool isLeftWheel;
 
 
@@ -21,7 +21,7 @@ public class WheelScript : MonoBehaviour
             ? _turnDirection / 2f + _thrustDirection
             : _turnDirection;
 
-        transform.Rotate(rotationValue * wheelRotation * Time.deltaTime * Vector3.right);
+        transform.Rotate(rotationValue * wheelRotationSpeed * Time.deltaTime * Vector3.right);
     }
 
     public void GoForward(InputAction.CallbackContext ctx)
