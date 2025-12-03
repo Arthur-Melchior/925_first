@@ -1,22 +1,26 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TankController : MonoBehaviour
 {
+    private static readonly int StartRolling = Animator.StringToHash("startRolling");
     private float _thrust = 0;
     private float _bodyRotation = 0;
     private float _turretRotation = 0;
     private float _cannonRotation = 0;
     private float _cannonTilt = 0;
-    
-    [Header("Speeds")]
-    [SerializeField] private float speed = 1;
-    [SerializeField] private float turnSpeed = 30;
+
+    [Header("Speeds")] [SerializeField] private float speed = 1;
+    [SerializeField] private float turnSpeed = 60;
     [SerializeField] private float turretSpeed = 40;
     [SerializeField] private float cannonSpeed = 200;
 
-    [Header("References")]
-    [SerializeField] private GameObject bullet;
+    [Header("Bullet")] [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform bulletSpawnPoint;
+
+    [SerializeField] private Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,10 +68,22 @@ public class TankController : MonoBehaviour
             _cannonRotation = value;
         }
     }
-    
+
     public void OnShoot(InputAction.CallbackContext ctx)
     {
-        Instantiate(bullet);
-        bullet.transform.Translate(Vector3.forward);
+        Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+    }
+
+    public void OnRoll(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+        
+        Debug.Log("roll");
+        animator.SetTrigger(StartRolling);
+    }
+
+    private IEnumerable test()
+    {
+        yield return new WaitForSeconds(1);
     }
 }
