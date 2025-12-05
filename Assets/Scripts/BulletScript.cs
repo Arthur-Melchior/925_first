@@ -27,5 +27,12 @@ public class BulletScript : MonoBehaviour
     {
         var fx = Instantiate(explosion, transform.position, transform.rotation);
         Destroy(fx, 1f);
+
+        var hearts = other.gameObject.GetComponentInChildren<HeartUIScript>();
+
+        if (hearts)
+        {
+            hearts.TakeDamage(1);
+        }
     }
 }
