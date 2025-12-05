@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class TankController : MonoBehaviour
 {
-    private static readonly int StartRolling = Animator.StringToHash("startRolling");
+    private static readonly int StartRollingRight = Animator.StringToHash("startRollingRight");
+    private static readonly int StartRollingLeft = Animator.StringToHash("startRollingLeft");
     private float _thrust = 0;
     private float _bodyRotation = 0;
     private float _turretRotation = 0;
@@ -16,24 +17,31 @@ public class TankController : MonoBehaviour
     [SerializeField] private float turnSpeed = 60;
     [SerializeField] private float turretSpeed = 40;
     [SerializeField] private float cannonSpeed = 200;
+    [SerializeField] private bool allowThrustInput = true;
 
     [Header("Bullet")] [SerializeField] private GameObject bullet;
     [SerializeField] private Transform bulletSpawnPoint;
 
     [SerializeField] private Animator animator;
+    private Rigidbody _rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(_thrust * speed * Time.deltaTime * Vector3.forward);
-        transform.Rotate(_bodyRotation * turnSpeed * Time.deltaTime * Vector3.up);
-        transform.Rotate(_turretRotation * turretSpeed * Time.deltaTime * Vector3.up);
-        transform.Rotate(_cannonRotation * cannonSpeed * Time.deltaTime * Vector3.right);
+        if (allowThrustInput)
+        {
+            var velocity = _thrust * speed * transform.forward;
+            _rb.AddForce(new Vector3(velocity.x, 0, velocity.z));
+            _rb.linearVelocity = new Vector3(velocity.x, _rb.linearVelocity.y, velocity.z);
+        }
+
+        _rb.angularVelocity = _bodyRotation * Mathf.Deg2Rad * turnSpeed * transform.up;
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
@@ -71,19 +79,24 @@ public class TankController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext ctx)
     {
+        if (!ctx.performed) return;
+
         Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
     }
 
-    public void OnRoll(InputAction.CallbackContext ctx)
+    public void OnRollRight(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed) return;
-        
-        Debug.Log("roll");
-        animator.SetTrigger(StartRolling);
-    }
 
-    private IEnumerable test()
+        Debug.Log("roll");
+        animator.SetTrigger(StartRollingRight);
+    }
+    
+    public void OnRollLeft(InputAction.CallbackContext ctx)
     {
-        yield return new WaitForSeconds(1);
+        if (!ctx.performed) return;
+
+        Debug.Log("roll");
+        animator.SetTrigger(StartRollingLeft);
     }
 }

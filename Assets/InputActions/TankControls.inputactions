@@ -52,9 +52,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Roll",
+                    "name": "RollRight",
                     "type": "Button",
                     "id": "da805697-1804-4327-b760-e109c2333f8a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RollLeft",
+                    "type": "Button",
+                    "id": "6a93773c-4223-4a72-aac6-be75efe06c98",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -340,11 +349,11 @@
                 {
                     "name": "",
                     "id": "00fa89d8-b511-4c70-b041-109119dbeec1",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Roll",
+                    "action": "RollRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -355,7 +364,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Roll",
+                    "action": "RollRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f610f9a-30cf-4fc5-9fec-1caf9cca6c5a",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "213a2cd2-607b-45b4-a84a-5877855ecb66",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
