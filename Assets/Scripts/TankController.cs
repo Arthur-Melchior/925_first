@@ -81,7 +81,8 @@ public class TankController : MonoBehaviour
     {
         if (!ctx.performed) return;
 
-        Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        var fx = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Destroy(fx, 5f);
     }
 
     public void OnRollRight(InputAction.CallbackContext ctx)
@@ -91,7 +92,7 @@ public class TankController : MonoBehaviour
         Debug.Log("roll");
         animator.SetTrigger(StartRollingRight);
     }
-    
+
     public void OnRollLeft(InputAction.CallbackContext ctx)
     {
         if (!ctx.performed) return;

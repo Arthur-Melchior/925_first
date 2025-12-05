@@ -6,7 +6,8 @@ public class BulletScript : MonoBehaviour
     private Rigidbody _rb;
 
     [SerializeField] private float bulletForce = 50;
-
+    [SerializeField] private GameObject explosion;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,11 +21,11 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        _rb.AddRelativeForce(Vector3.back * bulletForce * 1.2f, ForceMode.Impulse);
+        var fx = Instantiate(explosion, transform.position, transform.rotation);
+        Destroy(fx, 1f);
     }
 }

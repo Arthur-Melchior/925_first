@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 3348639717169182007}
   - component: {fileID: 6076708362631610029}
   - component: {fileID: 2717628753105994616}
-  m_Layer: 0
+  - component: {fileID: 338536586810359507}
+  - component: {fileID: 6331239741145743196}
+  m_Layer: 3
   m_Name: TankFree_Blue
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4090018617740651327}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3001756, y: 0.3001756, z: 0.3001756}
   m_ConstrainProportionsScale: 1
@@ -70,10 +72,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fadd132bfaf5164c9f1f3740e26c932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 5
   turnSpeed: 200
   turretSpeed: 200
   cannonSpeed: 500
+  allowThrustInput: 1
   bullet: {fileID: 7090710131271465290, guid: 6f4d29cfd8b2b4744bcabc5437eeb536, type: 3}
   bulletSpawnPoint: {fileID: 106696055606340716}
   animator: {fileID: 4341551778757808226}
@@ -101,8 +104,8 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
+  m_Interpolate: 2
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!65 &2717628753105994616
 BoxCollider:
@@ -125,6 +128,161 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0962825, y: 1.934416, z: 2.985657}
   m_Center: {x: -0.03403658, y: 1.2846617, z: 0.11241114}
+--- !u!114 &338536586810359507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090018617740651327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 6bcb9afce7600fc4da77623ea030b482, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3348639717169182007}
+        m_TargetAssemblyTypeName: TankController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 18f282d2-cc5b-41e5-8cf4-c815525772c4
+    m_ActionName: 'Tank/Move[/Keyboard/w,/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3348639717169182007}
+        m_TargetAssemblyTypeName: TankController, Assembly-CSharp
+        m_MethodName: OnTurn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 41f27536-4e93-4662-93a2-d003fd52636b
+    m_ActionName: 'Tank/Turn[/Keyboard/d,/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3348639717169182007}
+        m_TargetAssemblyTypeName: TankController, Assembly-CSharp
+        m_MethodName: OnTurnTurret
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e83b668f-180b-4a80-a6cc-e3c917b3af73
+    m_ActionName: 'Tank/TurnTurret[/Mouse/leftButton,/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3348639717169182007}
+        m_TargetAssemblyTypeName: TankController, Assembly-CSharp
+        m_MethodName: OnTurnCannon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1331c820-f238-4aca-ae79-426b5dd659b8
+    m_ActionName: 'Tank/TurnCannon[/Mouse/scroll/up,/Mouse/scroll/down]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3348639717169182007}
+        m_TargetAssemblyTypeName: TankController, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 895c38fa-8fed-4b36-b223-d942e12dacd3
+    m_ActionName: 'Tank/Shoot[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3348639717169182007}
+        m_TargetAssemblyTypeName: TankController, Assembly-CSharp
+        m_MethodName: OnRollRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: da805697-1804-4327-b760-e109c2333f8a
+    m_ActionName: 'Tank/Roll[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3348639717169182007}
+        m_TargetAssemblyTypeName: TankController, Assembly-CSharp
+        m_MethodName: OnRollLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6a93773c-4223-4a72-aac6-be75efe06c98
+    m_ActionName: 'Tank/RollLeft[/Keyboard/f]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Tank
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &6331239741145743196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090018617740651327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d044a3d8f79e3ea4cbc218822e2e3a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rollForce: 3
 --- !u!1 &5843197661610406707
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +294,7 @@ GameObject:
   - component: {fileID: 2671966646150412948}
   - component: {fileID: 8213214078192674959}
   - component: {fileID: 56900136317964536}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankFree_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +387,7 @@ GameObject:
   - component: {fileID: 519587482799330236}
   - component: {fileID: 576629068627550037}
   - component: {fileID: 1925375020916575545}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankFree_Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 106696055606340716}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -346,7 +504,7 @@ GameObject:
   - component: {fileID: 8108423751610928868}
   - component: {fileID: 3498695688996440081}
   - component: {fileID: 8129116049078497322}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TankFree_Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,6 +591,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankFree_Wheel_b_right
       objectReference: {fileID: 0}
+    - target: {fileID: 4570532094632408461, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8239477069976016847, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.78180015
@@ -491,9 +653,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2671966646150412948}
     m_Modifications:
+    - target: {fileID: -312126763598017600, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
+      propertyPath: isLeftWheel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4570532094632408461, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
       propertyPath: m_Name
       value: TankFree_Wheel_b_left
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570532094632408461, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8239477069976016847, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,6 +727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankFree_Wheel_f_right
       objectReference: {fileID: 0}
+    - target: {fileID: 4570532094632408461, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8239477069976016847, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.7840002
@@ -615,9 +789,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2671966646150412948}
     m_Modifications:
+    - target: {fileID: -312126763598017600, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
+      propertyPath: isLeftWheel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4570532094632408461, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
       propertyPath: m_Name
       value: TankFree_Wheel_f_left
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570532094632408461, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8239477069976016847, guid: d4e971978ac67b24394295e1eff72df3, type: 3}
       propertyPath: m_LocalPosition.x
